@@ -40,7 +40,7 @@ export default class MainComment extends Component {
 
   render() {
 
-    const { comment, index } = this.props;
+    const { comment, index, deleteMainComment } = this.props;
     const { replyToggle, likes, dislikes } = this.state;
     const displayReplies = () => {
       // 0 is also a falsly value
@@ -56,6 +56,7 @@ export default class MainComment extends Component {
       <div className="main-comment">
         <hr />
         <p className="main-comment__text">{index + 1}: {comment}</p>
+        <button onClick={()=>deleteMainComment(comment)}>Delete comment</button>
         <div className="main-comment__info">
           <button onClick={() => this.incrementValue('likes')} className="counter">Likes: {likes}</button>
           <button onClick={() => this.incrementValue('dislikes')} className="counter"> Dislikes: {dislikes}</button>

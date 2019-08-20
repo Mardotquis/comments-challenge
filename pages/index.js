@@ -25,6 +25,15 @@ export default class Index extends Component {
     this.setState({mainComments: copyOfMainCommentsArray})
   }
 
+  deleteMainComment = (commentText) => {
+    // passing in text because index may
+    // change if an array element is removed before it
+    let mainComments = [...this.state.mainComments]
+    const commentToDeleteIndex = mainComments.indexOf(commentText)
+    mainComments.splice(commentToDeleteIndex, 1)
+    this.setState({mainComments})
+  }
+
 
   render() {
     const displayMainComments = () => {
@@ -36,6 +45,7 @@ export default class Index extends Component {
         return <MainComment comment={comment}
         // passing this down so that
         // I can also use it there and not repeat the code
+        deleteMainComment={this.deleteMainComment}
         index={index}
         />
       })
