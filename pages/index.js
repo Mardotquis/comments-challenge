@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MainComment from '../components/MainComment';
+import '../App.css';
 
 export default class Index extends Component {
   constructor(props) {
@@ -8,16 +9,15 @@ export default class Index extends Component {
       mainComments: [],
       commentText: ""
     }
-    // binding this manually because I'll be passing the functionality down
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e){
+  handleChange = (e) => {
     const { value } = e.target;
     this.setState({commentText: value})
   }
 
   submitNewComment = (e) => {
+    // updating the mainComments array in state with the new value
     e.preventDefault();
     const { commentText } = this.state;
     const copyOfMainCommentsArray = [...this.state.mainComments]
@@ -36,7 +36,6 @@ export default class Index extends Component {
         return <MainComment comment={comment}
         // passing this down so that
         // I can also use it there and not repeat the code
-        handleChange={this.handleChange}
         index={index}
         />
       })
@@ -49,7 +48,7 @@ export default class Index extends Component {
         <form action="" onSubmit={this.submitNewComment}>
           <label htmlFor="comment">Submit a comment!</label>
           <input type="text" id="comment" onChange={this.handleChange}/>
-          <input type="submit" value="Submit a comment" />
+          <input type="submit" value="Submit" />
         </form>
         <h2>Comments:</h2>
         {displayMainComments()}

@@ -1,0 +1,17 @@
+.main-comment {
+    margin-left: 2em;
+}
+
+.main-comment__text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.main-comment__info button{
+    display: inline-block;
+    margin: 0 1em 1em 0;
+}
+
+.counter:hover {
+    cursor: pointer;
+}
