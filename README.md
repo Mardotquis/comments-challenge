@@ -4,5 +4,6 @@ Simple comment threading challenge built using [React](https://reactjs.org/docs/
 
 ## Features
 - Posting comments
+- Deleting comments
 - Liking & Disliking comments
 - Replying to comments
